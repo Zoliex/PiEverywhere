@@ -62,9 +62,13 @@ else
 fi
 
 echo "Installation du driver pour l'écran LCD 5\""
+cd /home/
 sudo rm -rf LCD-show
 git clone https://github.com/goodtft/LCD-show.git
 chmod -R 755 LCD-show
 cd LCD-show/
-sudo ./LCD5-show
+sudo ./LCD5-show 180
 echo "Done"
+
+echo "dtparam=act_led_gpio=12" >> /boot/config.txt
+sudo reboot
