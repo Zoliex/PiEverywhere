@@ -60,3 +60,11 @@ if echo "$answer" | grep -iq "^y" ;then
 else
     echo "Not installing RaspAP"
 fi
+
+echo "Installation du driver pour l'écran LCD 5\""
+sudo rm -rf LCD-show
+git clone https://github.com/goodtft/LCD-show.git
+chmod -R 755 LCD-show
+cd LCD-show/
+sudo ./LCD5-show
+echo "Done"
