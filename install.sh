@@ -67,7 +67,7 @@ sudo rm -rf LCD-show
 git clone https://github.com/goodtft/LCD-show.git
 chmod -R 755 LCD-show
 cd LCD-show/
-sudo ./LCD5-show 180
+sudo ./LCD5-show
 echo "Done"
 
 echo "dtparam=act_led_gpio=12" >> /boot/config.txt
