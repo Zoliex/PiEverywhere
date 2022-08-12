@@ -20,15 +20,13 @@ sudo apt install build-essential -y
 sudo npm install pm2 nodemon -g
 echo "Done"
 
-echo "Replacing Splash screen..."
+echo "Remplacement de l'écran de démarrage..."
 sudo mv /usr/share/plymouth/themes/pix/splash.png /usr/share/plymouth/themes/pix/splash.png.bk
 sudo cp ./splash.png /usr/share/plymouth/themes/pix/
 echo "Done"
 
-echo "Replacing Wallpaper..."
-BG_SRC = $(readlink -e ./bg.png)
-pcmanfm --set-wallpaper $BG_SRC
-echo "Done"
+echo "Remplacement du fond d'écran"
+./change-background.sh
 
 echo "Installation du mode kiosk"
 sudo mkdir /home/kiosk
@@ -49,7 +47,7 @@ cd LCD-show/
 sudo ./LCD5-show
 echo "Done"
 
-printf 'Do you want to install RaspAP (y/n) (recommended)? '
+printf 'Voulez-vous installer RaspAP (y/n) (recommendé)? '
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
@@ -68,7 +66,7 @@ if echo "$answer" | grep -iq "^y" ;then
     echo "Hostname: "
     hostname -I
 else
-    echo "Not installing RaspAP"
+    echo "n"
 fi
 
 echo "dtparam=act_led_gpio=12" | sudo tee -a /boot/config.txt
