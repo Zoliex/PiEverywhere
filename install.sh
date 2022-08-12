@@ -70,5 +70,5 @@ cd LCD-show/
 sudo ./LCD5-show
 echo "Done"
 
-echo "dtparam=act_led_gpio=12" >> /boot/config.txt
-sudo reboot
+echo "dtparam=act_led_gpio=12" | sudo tee -a /boot/config.txt
+echo "Installation Terminée entrez `sudo reboot` pour redémarrer" 
