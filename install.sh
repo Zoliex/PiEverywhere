@@ -26,26 +26,27 @@ sudo cp ./splash.png /usr/share/plymouth/themes/pix/
 echo "Done"
 
 echo "Remplacement du fond d'écran"
+chmod +x ./change-background.sh
 ./change-background.sh
 
 echo "Installation du mode kiosk"
 sudo mkdir /home/kiosk
 sudo cp ./kiosk.txt /home/kiosk/kiosk.sh
-sudo chmod chmod u+x /home/kiosk/kiosk.sh
+sudo chmod u+x /home/kiosk/kiosk.sh
 
 sudo cp ./kiosk-service.txt /lib/systemd/system/kiosk.service
 sudo systemctl enable kiosk.service
 sudo systemctl start kiosk.service
 sudo systemctl status kiosk.service
 
-echo "Installation du driver pour l'écran LCD 5\""
-cd /home/
-sudo rm -rf LCD-show
-git clone https://github.com/goodtft/LCD-show.git
-chmod -R 755 LCD-show
-cd LCD-show/
-sudo ./LCD5-show
-echo "Done"
+#echo "Installation du driver pour l'écran LCD 5\""
+#cd /home/
+#sudo rm -rf LCD-show
+#git clone https://github.com/goodtft/LCD-show.git
+#chmod -R 755 LCD-show
+#cd LCD-show/
+#sudo ./LCD5-show
+#echo "Done"
 
 printf 'Voulez-vous installer RaspAP (y/n) (recommendé)? '
 old_stty_cfg=$(stty -g)
