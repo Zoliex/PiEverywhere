@@ -11,7 +11,6 @@ sudo apt purge smartsim java-common minecraft-pi libreoffice* -y
 sudo apt clean
 sudo apt autoremove -y
 
-sudo apt install imagemagick -y
 sudo apt install chromium-browser -y
 sudo apt install unclutter sed -y
 
@@ -26,7 +25,8 @@ sudo cp ./splash.png /usr/share/plymouth/themes/pix/
 echo "Done"
 
 echo "Replacing Wallpaper..."
-display -window root ./bg.png
+BG_SRC = $(readlink -e ./bg.png)
+pcmanfm --set-wallpaper $BG_SRC
 echo "Done"
 
 echo "Installation du mode kiosk"
