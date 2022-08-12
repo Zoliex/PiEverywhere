@@ -39,6 +39,15 @@ sudo systemctl enable kiosk.service
 sudo systemctl start kiosk.service
 sudo systemctl status kiosk.service
 
+echo "Installation du driver pour l'écran LCD 5\""
+cd /home/
+sudo rm -rf LCD-show
+git clone https://github.com/goodtft/LCD-show.git
+chmod -R 755 LCD-show
+cd LCD-show/
+sudo ./LCD5-show
+echo "Done"
+
 printf 'Do you want to install RaspAP (y/n) (recommended)? '
 old_stty_cfg=$(stty -g)
 stty raw -echo
@@ -60,15 +69,6 @@ if echo "$answer" | grep -iq "^y" ;then
 else
     echo "Not installing RaspAP"
 fi
-
-echo "Installation du driver pour l'écran LCD 5\""
-cd /home/
-sudo rm -rf LCD-show
-git clone https://github.com/goodtft/LCD-show.git
-chmod -R 755 LCD-show
-cd LCD-show/
-sudo ./LCD5-show
-echo "Done"
 
 echo "dtparam=act_led_gpio=12" | sudo tee -a /boot/config.txt
 echo "Installation Terminée entrez `sudo reboot` pour redémarrer" 
