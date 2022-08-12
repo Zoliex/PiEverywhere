@@ -1,3 +1,5 @@
+#!/bin/bash
+
 BG_SRC=$(readlink -e ./bg.png)
 echo $BG_SRC
 export DISPLAY=:0.0
