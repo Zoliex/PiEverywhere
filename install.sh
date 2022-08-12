@@ -71,4 +71,4 @@ else
 fi
 
 echo "dtparam=act_led_gpio=12" | sudo tee -a /boot/config.txt
-echo "Installation Terminée entrez `sudo reboot` pour redémarrer" 
+echo "Installation Terminée entrez |sudo reboot| pour redémarrer" 
