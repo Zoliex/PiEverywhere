@@ -17,6 +17,7 @@ sudo apt install unclutter sed -y
 curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt install nodejs -y
 sudo apt install build-essential -y
+sudo apt-get install gcc g++ make
 sudo npm install pm2 nodemon -g
 echo "Done"
 
